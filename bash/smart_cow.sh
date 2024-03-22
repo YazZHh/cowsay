@@ -16,7 +16,7 @@ do
         fi
     done
     
-    if [ "$est_nb" = false ]  # Si le caractère n'est pas un chiffre alors nécéssairement c'est un opérateur
+    if [ "$est_nb" = false ]    # Si le caractère n'est pas un chiffre alors nécéssairement c'est un opérateur
     then
         mode=$char
         nb1=$nb_temp
@@ -24,14 +24,27 @@ do
     fi
 done
 
-if [ "$mode" = "*" ]
+if [ "$mode" = "*" ]        # On doit gérer le cas de la multiplication différemment car * est un métacaractère
 then
-    echo $(expr $nb1 \* $nb_temp)
-elif [ "$mode" = "/" -a $nb_temp = "0" ]
+    res=$(expr $nb1 \* $nb_temp)
+elif [ "$mode" = "/" -a $nb_temp = "0" ]        # On fait attention au cas de la division par 0 !
 then
     echo Erreur de division par 0 !
+    exit 1
 else
-    echo $(expr $nb1 $mode $nb_temp)
+    res=$(expr $nb1 $mode $nb_temp)
 fi
 
-# il reste à faire un affichage propre avec la vache
+if [ ${#res} -eq 1 ]    # Juste un petit fix, si jamais le résultat est un seul chiffre, on ajoute un 0 devant pour ne pas décaler le dessin ascii de la vache
+then
+    res=$(echo 0$res)   # Une variante serait de mettre un espace au lieu du 0 mais je trouve que ca rend mieux avec un 0 plutôt qu'avec un espace
+fi
+
+echo " ----"
+echo "< $1= >"
+echo " ----"
+echo "     \  ^__^"
+echo "      \ ($res)\_______"
+echo "        (__)\       )\/\\"
+echo "            ||----w |"
+echo "            ||     ||"
