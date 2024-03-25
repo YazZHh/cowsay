@@ -32,4 +32,24 @@ do
 
 done
 
-echo "$encrypted_msg"   # Plus qu'à afficher le message chiffré
+if [ ${#encrypted_msg} -lt 40 ]
+then
+    # On affiche le haut de la boîte de dialogue
+    printf " "
+    for i in $(seq 1 $(expr ${#2} + 2))
+    do
+        printf "_"
+    done
+    echo
+
+    # Puis on affiche le message chiffré
+    echo "< $encrypted_msg >"
+
+    # Ensuite on affiche le bas de la boite de dialogue
+    printf " "
+    for i in $(seq 1 $(expr ${#2} + 2))
+    do
+        printf "-"
+    done
+    echo
+fi
