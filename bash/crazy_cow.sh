@@ -32,24 +32,57 @@ do
 
 done
 
-if [ ${#encrypted_msg} -lt 40 ]
-then
-    # On affiche le haut de la boîte de dialogue
-    printf " "
-    for i in $(seq 1 $(expr ${#2} + 2))
-    do
-        printf "_"
-    done
-    echo
+clear
 
-    # Puis on affiche le message chiffré
-    echo "< $encrypted_msg >"
+# On affiche le haut de la boîte de dialogue
+printf " "
+for i in $(seq 1 $(expr ${#2} + 2))
+do
+    printf "_"
+done
+echo
 
-    # Ensuite on affiche le bas de la boite de dialogue
-    printf " "
-    for i in $(seq 1 $(expr ${#2} + 2))
-    do
-        printf "-"
-    done
-    echo
-fi
+# Puis on affiche le message chiffré
+echo "< $2 >"
+
+# Ensuite on affiche le bas de la boite de dialogue
+printf " "
+for i in $(seq 1 $(expr ${#2} + 2))
+do
+    printf "-"
+done
+echo
+
+echo "    o   ^__^"
+echo "     o  (--)\_______"
+echo "        (__)\       )\/\\"
+echo "            ||----w |"
+echo "            ||     ||"
+
+sleep 3
+clear
+
+# On affiche le haut de la boîte de dialogue
+printf " "
+for i in $(seq 1 $(expr ${#2} + 2))
+do
+    printf "_"
+done
+echo
+
+# Puis on affiche le message chiffré
+echo "< $encrypted_msg >"
+
+# Ensuite on affiche le bas de la boite de dialogue
+printf " "
+for i in $(seq 1 $(expr ${#2} + 2))
+do
+    printf "-"
+done
+echo
+
+echo "    \   ^__^"
+echo "     \  ($1)\_______"
+echo "        (__)\       )\/\\"
+echo "            ||----w |"
+echo "            ||     ||"
