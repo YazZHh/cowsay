@@ -59,10 +59,10 @@ echo "        (__)\       )\/\\"
 echo "            ||----w |"
 echo "            ||     ||"
 
-sleep 3
+sleep 2
 clear
 
-# On affiche le haut de la boîte de dialogue
+# On refait pareil ensuite, pour dévoiler le message chiffré
 printf " "
 for i in $(seq 1 $(expr ${#2} + 2))
 do
@@ -70,10 +70,8 @@ do
 done
 echo
 
-# Puis on affiche le message chiffré
 echo "< $encrypted_msg >"
 
-# Ensuite on affiche le bas de la boite de dialogue
 printf " "
 for i in $(seq 1 $(expr ${#2} + 2))
 do
@@ -81,8 +79,13 @@ do
 done
 echo
 
+if [ ${#decalage} -eq 1 ]
+then
+    decalage=$(echo 0$decalage)
+fi
+
 echo "    \   ^__^"
-echo "     \  ($1)\_______"
+echo "     \  ($decalage)\_______"
 echo "        (__)\       )\/\\"
 echo "            ||----w |"
 echo "            ||     ||"
