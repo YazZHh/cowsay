@@ -43,7 +43,7 @@ done
 echo
 
 # Puis on affiche le message chiffré
-echo "< $2 >"
+echo "( $2 )"
 
 # Ensuite on affiche le bas de la boite de dialogue
 printf " "

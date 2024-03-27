@@ -40,9 +40,24 @@ then
     res=$(echo 0$res)   # Une variante serait de mettre un espace au lieu du 0 mais je trouve que ca rend mieux avec un 0 plutôt qu'avec un espace
 fi
 
-echo " ----"
-echo "< $1= >"
-echo " ----"
+$calcul=$(echo $nb1 $mode $nb_temp)
+
+printf " "
+for i in $(seq 1 $(expr ${#calcul} + 2))
+do
+    printf "_"
+done
+echo
+
+echo "< $calcul >"
+
+printf " "
+for i in $(seq 1 $(expr ${#calcul} + 2))
+do
+    printf "-"
+done
+echo
+
 echo "     \  ^__^"
 echo "      \ ($res)\_______"
 echo "        (__)\       )\/\\"
