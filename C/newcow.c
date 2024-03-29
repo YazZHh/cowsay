@@ -3,6 +3,14 @@
 #include <stdio.h>
 #include <string.h>
 
+void update(){
+    printf("\033[H\033[J");
+}
+
+void gotoxy(int x, int y){
+    printf("\033[%d;%dH", x, y);
+}
+
 void afficher_vache(char* eyes, int rainbow){
     char *rouge = "\033[0m";
     char *vert = "\033[0m";
