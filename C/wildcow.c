@@ -7,33 +7,49 @@ void update(){
     printf("\033[H\033[J");
 }
 
-void gotoyx(int y, int x){
+void gotoxy(int x, int y){
     printf("\033[%d;%dH", y, x);
 }
 
-void afficher_vache(int type, int decalage, char* eyes){
-    char dec[256];
-    for (int i=0; i<decalage; i++)
-        dec[i]='-';
-    dec[decalage]='\0';
-    
-    printf("'%s'\n", dec);
+void afficher_vache(int type, int x, int y, char* eyes){
+    gotoxy(x, y);
 
     if (type == 1){
-        printf("%s^__^\n", dec);
-        printf("%s(%c%c)\\_______\n", dec, eyes[0], eyes[1]);
-        printf("%s(__)\\       )\\/\\\n", dec);
-        printf("%s    ||----w |\n", dec);
-        printf("%s    ||     ||\n", dec);
+        printf("^__^");
+        gotoxy(x, y+1);
+        printf("(%c%c)\\_______", eyes[0], eyes[1]);
+        gotoxy(x, y+2);
+        printf("(__)\\       )\\/\\");
+        gotoxy(x, y+3);
+        printf("    ||----w |");
+        gotoxy(x, y+4);
+        printf("    ||     ||");
     }
     else if (type == 0){
-        printf("%s^__^\n", dec);
-        printf("%s(%c%c)\\_______\n", dec, eyes[0], eyes[1]);
-        printf("%s(__)\\       )\\/\\\n", dec);
-        printf("%s    /\\----w \\\n", dec);
-        printf("%s   /  \\   /  \\\n", dec);
+        printf("^__^");
+        gotoxy(x, y+1);
+        printf("(%c%c)\\_______", eyes[0], eyes[1]);
+        gotoxy(x, y+2);
+        printf("(__)\\       )\\/\\");
+        gotoxy(x, y+3);
+        printf("    /\\----w \\");
+        gotoxy(x, y+4);
+        printf("   /  \\   /  \\");
     }
     
+}
+
+void afficher_poteau(int x, int y){
+    int hauteur=y;
+    gotoxy(x, hauteur);
+    printf("__");
+    hauteur++;
+    while (hauteur<y+5){
+        gotoxy(x, hauteur);
+        printf("||");
+        hauteur++;
+    }
+    printf("\n");
 }
 
 int main(int argc, char* argv[]){
@@ -46,16 +62,23 @@ int main(int argc, char* argv[]){
     //     else if (strcmp(argv[i], "-r") == 0 || strcmp(argv[i], "--rainbow") == 0)
     //         rainbow=1;
     // }
-    int decalage=3;
+    int decalage=50;
     int mode=0;
-    while (decalage>-1){
-        afficher_vache(mode, decalage, eyes);
+    // for (int i=0; i<16; i++){
+    //     gotoxy(i*i, i);
+    //     printf("O");
+    // }
+    // printf("\n");
 
+    afficher_vache(1, 50, 6, "^^");
+    afficher_poteau(30, 6);
+    while (decalage>-1){
+        afficher_vache(mode, decalage, 6, eyes);
+        afficher_poteau(30, 6);
         if (mode == 1)
             mode=0;
         else
             mode=1;
-
         decalage--;
         usleep(100000); // On attend 100ms
         update();
