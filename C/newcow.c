@@ -7,8 +7,8 @@ void update(){
     printf("\033[H\033[J");
 }
 
-void gotoxy(int x, int y){
-    printf("\033[%d;%dH", x, y);
+void gotoyx(int y, int x){
+    printf("\033[%d;%dH", y, x);
 }
 
 void afficher_vache(char* eyes, int rainbow){
