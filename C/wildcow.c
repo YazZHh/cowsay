@@ -89,14 +89,13 @@ int main(int argc, char* argv[]){
             mode=0;
             hauteur_vache++;
             strcpy(eyes, "\\/");
-        }
-        else
-            strcpy(eyes, "^^");
-        
-        if (abscisse_vache - abscisse_poteau >= -11 && abscisse_vache - abscisse_poteau <= -3){
+        }        
+        else if (abscisse_vache - abscisse_poteau >= -11 && abscisse_vache - abscisse_poteau <= -3){
             mode=0;
             strcpy(eyes, "00");
         }
+        else
+            strcpy(eyes, "^^");
 
         // if 
 
