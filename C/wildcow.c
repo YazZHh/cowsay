@@ -97,10 +97,6 @@ int main(int argc, char* argv[]){
         else
             strcpy(eyes, "^^");
 
-        // if 
-
-
-
         usleep(100000); // On attend 100ms
         update();
 
