@@ -44,6 +44,7 @@ void afficher_poteau(int x, int y){
     gotoxy(x, hauteur);
     printf("__");
     hauteur++;
+    
     while (hauteur<y+5){
         gotoxy(x, hauteur);
         printf("||");
@@ -53,12 +54,6 @@ void afficher_poteau(int x, int y){
 }
 
 int main(int argc, char* argv[]){
-    // for (int i=1; i<argc; i++){
-    //     if (strcmp(argv[i], "-e") == 0 || strcmp(argv[i], "--eyes") == 0)
-    //         strcpy(eyes, argv[i+1]);
-    //     else if (strcmp(argv[i], "-r") == 0 || strcmp(argv[i], "--rainbow") == 0)
-    //         rainbow=1;
-    // }
 
     update();
     char eyes[15]="^^";
@@ -68,8 +63,6 @@ int main(int argc, char* argv[]){
     int hauteur_vache=sol;
     int mode=0;
 
-    // afficher_vache(mode, abscisse_vache, sol, "^^");
-    // afficher_poteau(30, sol);
     while (abscisse_vache>-1){
         afficher_vache(mode, abscisse_vache, hauteur_vache, eyes);
         afficher_poteau(abscisse_poteau, sol);
@@ -78,14 +71,15 @@ int main(int argc, char* argv[]){
             mode=0;
         else
             mode=1;
-        abscisse_vache--;
+
+        abscisse_vache--;   // On fait avancer la vache
 
         if (abscisse_vache - abscisse_poteau > -3 && abscisse_vache - abscisse_poteau < 5){     // La montée du saut
             mode=0;
             hauteur_vache--;
             strcpy(eyes, "\\/");
         }
-        else if (abscisse_vache - abscisse_poteau < -11 && abscisse_vache - abscisse_poteau > -19){     // La redescente
+        else if (abscisse_vache - abscisse_poteau < -11 && abscisse_vache - abscisse_poteau > -19){     // La redescente du saut
             mode=0;
             hauteur_vache++;
             strcpy(eyes, "\\/");

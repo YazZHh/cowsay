@@ -36,18 +36,22 @@ void afficher_vache(char* eyes, int rainbow, int nb_tail){
 }
 
 int main(int argc, char* argv[]){
-
     char eyes[15]="oo";
     int rainbow=0;
     int nb_tail=0;
+
     for (int i=1; i<argc; i++){
+
         if (strcmp(argv[i], "-e") == 0 || strcmp(argv[i], "--eyes") == 0)
             strcpy(eyes, argv[i+1]);
+
         else if (strcmp(argv[i], "-r") == 0 || strcmp(argv[i], "--rainbow") == 0)
             rainbow=1;
+
         else if (strcmp(argv[i], "-t") == 0 || strcmp(argv[i], "--tail") == 0){
             char* str_nb_tail=argv[i+1];
             int i=0;
+
             while (str_nb_tail[i] != '\0'){                         // Conversion du paramètre de char en int
                 nb_tail = nb_tail * 10 + (str_nb_tail[i] - '0');
                 i++;
