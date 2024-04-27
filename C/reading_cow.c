@@ -3,11 +3,15 @@
 #include <string.h>
 #include <unistd.h>
 
-void dessiner_vache(){
+void update(){
+    printf("\033[H\033[J");
+}
+
+void dessiner_vache(char car){
     printf("     \\  ^__^\n");
     printf("      \\ (oo)\\_______\n");
     printf("        (__)\\       )\\/\\\n");
-    printf("            ||----w |\n");
+    printf("         %c  ||----w |\n", car);
     printf("            ||     ||\n");
 }
 
@@ -34,8 +38,27 @@ int main(int argc, char* argv[]){
     } else {
         f=stdin;
     }
-    char msg[]="";
-    fscanf(f, "%s", msg);
-    dessiner_bulle(msg);
-    dessiner_vache();
+    
+    char* msg=malloc(256*sizeof(char));
+    char car;
+    int i=0;
+    msg[i]='\0';
+
+    while (!feof(f)){
+        fscanf(f, "%c", &car);
+
+        if (car == '\n')        // Gestion du cas où le caractère est un retour à la ligne
+            car=' ';            // On le remplace par un espace pour éviter les bugs d'affichage
+
+        update();
+        dessiner_bulle(msg); dessiner_vache(car);
+        sleep(1);
+
+        msg[i]=car;
+        msg[i+1]='\0';
+        i++;
+        car=' ';
+    }
+    fclose(f);
+    return 0;
 }
