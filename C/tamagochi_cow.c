@@ -21,6 +21,17 @@ void dessiner_vache(int etat){
     printf("            ||     ||\n");
 }
 
+int stock=5;
+int fitness=5;
+
+int stock_update(int stock, int lunchfood, int crop){
+    return (stock-lunchfood)+crop;
+}
+
+int fitness_update(int fitness, int lunchfood, int digestion){
+    return (fitness+lunchfood)+digestion;
+}
+
 int main(int argc, char* argv[]){
     return 0;
 }
