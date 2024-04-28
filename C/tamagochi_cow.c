@@ -12,7 +12,7 @@ void dessiner_vache(int etat){
     if (etat == LIFESUCKS)
         strcpy(yeux, "--");
     else if (etat == BYEBYELIFE)
-        strcpy(yeux, "--");
+        strcpy(yeux, "xx");
         langue='U';
     printf("        ^__^\n");
     printf("        (%s)\\_______\n", yeux);
