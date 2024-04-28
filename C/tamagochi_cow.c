@@ -1,6 +1,7 @@
 // たまごち牛。ｃ
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define BYEBYELIFE 0
 #define LIFESUCKS 1
@@ -24,12 +25,14 @@ void dessiner_vache(int etat){
 int stock=5;
 int fitness=5;
 
-int stock_update(int stock, int lunchfood, int crop){
-    return (stock-lunchfood)+crop;
+void stock_update(int lunchfood){
+    int crop = (rand() % 6) - 3;    // On s'assure d'une génération aléatoire sur [-3;3]
+    stock = (stock-lunchfood)+crop;
 }
 
-int fitness_update(int fitness, int lunchfood, int digestion){
-    return (fitness+lunchfood)+digestion;
+void fitness_update(int lunchfood){
+    int digestion = -(rand() % 3);  // Génération aléatoire sur [-3;0]
+    fitness = (fitness+lunchfood)+digestion;
 }
 
 int main(int argc, char* argv[]){
