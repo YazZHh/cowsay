@@ -12,16 +12,23 @@ void update(){
 }
 
 void dessiner_vache(int etat){
-    char* yeux="^^";
+    char yeux[2]="^^";
     char langue=' ';
     if (etat == LIFESUCKS){
         strcpy(yeux, "--");
-        printf(" ___________\n < Lifesucks >\n -----------");
-    } else if (etat == BYEBYELIFE) {
+        printf(" ___________\n");
+        printf("< Lifesucks >\n");
+        printf(" -----------\n");
+    } else if (etat == BYEBYELIFE){
         strcpy(yeux, "xx"); langue='U';
-        printf(" ____________\n < Byebyelife >\n ------------");
-    } else
-        printf(" ___________\n < Liferocks >\n -----------");
+        printf(" ____________\n");
+        printf("< Byebyelife >\n");
+        printf(" ------------\n");
+    } else if (etat == LIFEROCKS){
+        printf(" ___________\n");
+        printf("< Liferocks >\n");
+        printf(" -----------\n");
+    }
     printf("     \\  ^__^\n");
     printf("      \\ (%s)\\_______\n", yeux);
     printf("        (__)\\       )\\/\\\n");
@@ -52,4 +59,5 @@ void fitness_update(int lunchfood){
 
 int main(int argc, char* argv[]){
     return 0;
+    // dessiner_vache(BYEBYELIFE);
 }
