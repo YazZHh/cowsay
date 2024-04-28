@@ -7,6 +7,10 @@
 #define LIFESUCKS 1
 #define LIFEROCKS 2
 
+void update(){
+    printf("\033[H\033[J");
+}
+
 void dessiner_vache(int etat){
     char* yeux="^^";
     char langue=' ';
@@ -28,11 +32,19 @@ int fitness=5;
 void stock_update(int lunchfood){
     int crop = (rand() % 6) - 3;    // On s'assure d'une génération aléatoire sur [-3;3]
     stock = (stock-lunchfood)+crop;
+    if (stock < 0)
+        stock = 0;
+    else if (stock > 10)
+        stock = 10;
 }
 
 void fitness_update(int lunchfood){
     int digestion = -(rand() % 3);  // Génération aléatoire sur [-3;0]
     fitness = (fitness+lunchfood)+digestion;
+    if (fitness < 0)
+        fitness = 0;
+    else if (fitness > 10)
+        fitness = 10;
 }
 
 int main(int argc, char* argv[]){
