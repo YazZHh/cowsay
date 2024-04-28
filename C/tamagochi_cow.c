@@ -14,13 +14,16 @@ void update(){
 void dessiner_vache(int etat){
     char* yeux="^^";
     char langue=' ';
-    if (etat == LIFESUCKS)
+    if (etat == LIFESUCKS){
         strcpy(yeux, "--");
-    else if (etat == BYEBYELIFE)
-        strcpy(yeux, "xx");
-        langue='U';
-    printf("        ^__^\n");
-    printf("        (%s)\\_______\n", yeux);
+        printf(" ___________\n < Lifesucks >\n -----------");
+    } else if (etat == BYEBYELIFE) {
+        strcpy(yeux, "xx"); langue='U';
+        printf(" ____________\n < Byebyelife >\n ------------");
+    } else
+        printf(" ___________\n < Liferocks >\n -----------");
+    printf("     \\  ^__^\n");
+    printf("      \\ (%s)\\_______\n", yeux);
     printf("        (__)\\       )\\/\\\n");
     printf("         %c  ||----w |\n", langue);
     printf("            ||     ||\n");
