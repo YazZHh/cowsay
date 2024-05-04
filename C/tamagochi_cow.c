@@ -61,24 +61,27 @@ int main(int argc, char* argv[]){
     int mode;
     int lunchfood;
     int duree_de_vie = 0;
-    while (fitness != 0 && fitness != 10){
+
+    while (fitness != BYEBYELIFE && fitness != 10){
         update();
         if ((fitness >= 1 && fitness <= 3) || (fitness >= 7 && fitness <= 9))
             mode = LIFESUCKS;
         else if (fitness >= 4 && fitness <= 6)
             mode = LIFEROCKS;
+
+        printf("Durée de vie : %d\n", duree_de_vie);
         dessiner_vache(mode);
-        
         // printf("fitness : %d\n", fitness);   // DEBUG
         printf("stock : %d\n", stock);
         printf("Combien de lunchfood voulez vous donner à votre vache ?\n");
         scanf("%d", &lunchfood);
-        
-        while (lunchfood > stock){
+
+        while (lunchfood > stock || lunchfood < 0){     // On gère le cas où le joueur entre une valeur de lunchfood supérieur au stock disponible. 
             update();
+            printf("Durée de vie : %d\n", duree_de_vie);
             dessiner_vache(mode);
             printf("stock : %d\n", stock);
-            printf("Valeur de lunchfood supérieure au stock !!\nCombien de lunchfood voulez vous donner à votre vache ?\n");
+            printf("Valeur de lunchfood incorrecte !!\nCombien de lunchfood voulez vous donner à votre vache ?\n");
             scanf("%d", &lunchfood);
         }
 
@@ -86,7 +89,9 @@ int main(int argc, char* argv[]){
         fitness_update(lunchfood);
         duree_de_vie++;
     }
-    printf("Votre vache est morte...\n");
+    update();
+    printf("Durée de vie : %d\n", duree_de_vie);
     dessiner_vache(BYEBYELIFE);
+    printf("Votre vache est morte...\n");
 
 }
