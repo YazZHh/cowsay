@@ -58,6 +58,35 @@ void fitness_update(int lunchfood){
 }
 
 int main(int argc, char* argv[]){
-    return 0;
-    // dessiner_vache(BYEBYELIFE);
+    int mode;
+    int lunchfood;
+    int duree_de_vie = 0;
+    while (fitness != 0 && fitness != 10){
+        update();
+        if ((fitness >= 1 && fitness <= 3) || (fitness >= 7 && fitness <= 9))
+            mode = LIFESUCKS;
+        else if (fitness >= 4 && fitness <= 6)
+            mode = LIFEROCKS;
+        dessiner_vache(mode);
+        
+        // printf("fitness : %d\n", fitness);   // DEBUG
+        printf("stock : %d\n", stock);
+        printf("Combien de lunchfood voulez vous donner à votre vache ?\n");
+        scanf("%d", &lunchfood);
+        
+        while (lunchfood > stock){
+            update();
+            dessiner_vache(mode);
+            printf("stock : %d\n", stock);
+            printf("Valeur de lunchfood supérieure au stock !!\nCombien de lunchfood voulez vous donner à votre vache ?\n");
+            scanf("%d", &lunchfood);
+        }
+
+        stock_update(lunchfood);
+        fitness_update(lunchfood);
+        duree_de_vie++;
+    }
+    printf("Votre vache est morte...\n");
+    dessiner_vache(BYEBYELIFE);
+
 }
