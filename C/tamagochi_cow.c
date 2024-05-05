@@ -93,5 +93,5 @@ int main(int argc, char* argv[]){
     printf("Durée de vie : %d\n", duree_de_vie);
     dessiner_vache(BYEBYELIFE);
     printf("Votre vache est morte...\n");
-
+    return 0;
 }

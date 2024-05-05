@@ -6,16 +6,16 @@ der_nb=0
 clear
 while [ $nb -lt $1 ]
 do
-    prem=1
-    for i in $(seq 2 $(expr $nb - 1))       # On va bien vérifier que tout les nombres de 2 au nombre testé (sauf lui) ne divisent pas celui-ci
+    prem=1                                  # On suppose que le nombre est premier
+    for i in $(seq 2 $(expr $nb - 1))       # Et on va ensuite tester de le diviser avec tous les nombres de 2 à lui-même -1
     do
-        if [ $(expr $nb \% $i) -eq 0 ]
+        if [ $(expr $nb \% $i) -eq 0 ]      # Si il est divisible par au moins un des nombres alors il n'est pas premier
         then
             prem=0
         fi
     done
 
-    if [ $prem -eq 1 ]                      # Et si c'est le cas, on l'affiche
+    if [ $prem -eq 1 ]                      # On l'affiche si il est premier
     then
         echo " ----"
         echo "< $nb >"

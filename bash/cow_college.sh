@@ -17,10 +17,9 @@ do
     echo "            ||     ||"
     sleep 1
     clear
-    fibo_0=$fibo_1
+    fibo_0=$fibo_1                      # On calcule le prochain nombre de la suite
     fibo_1=$fibo_n
     fibo_n=$(expr $fibo_0 + $fibo_1)
-
 done
 
 echo " ----"

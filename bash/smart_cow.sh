@@ -5,24 +5,26 @@ nb_temp=0
 for i in $(seq 0 $(expr ${#1} - 1))
 do
     char=${1:$i:1}
-    est_nb=false
-    
-    for j in $(seq 0 9)     # On teste si l'opérateur est un nombre et on trouve sa valeur en int (et non str)
+
+    est_nb=false                # On suppose de base que le caractère n'est pas un nombre
+    for j in $(seq 0 9)     
     do
-        if [ "$char" = "$j" ]
+        if [ "$char" = "$j" ]                       # Si il match avec un caractère de 0 à 9,
         then
-            nb_temp=$(expr $nb_temp \* 10 + $j)
+            nb_temp=$(expr $nb_temp \* 10 + $j)     # On "l'ajoute" au début du nombre calculé
             est_nb=true
         fi
     done
     
     if [ "$est_nb" = false ]    # Si le caractère n'est pas un chiffre alors nécéssairement c'est un opérateur
     then
-        mode=$char
-        nb1=$nb_temp
+        mode=$char              # On définit le mode comme l'opération mathématique
+        nb1=$nb_temp            # Et on stock le premier nombre trouvé dans une variable
         nb_temp=0
     fi
 done
+# La boucle va jusqu'à la fin donc va parcourir le second nombre et le stocker dans nb_temp
+
 
 if [ "$mode" = "*" ]        # On doit gérer le cas de la multiplication différemment car * est un métacaractère
 then
@@ -40,8 +42,10 @@ then
     res=$(echo 0$res)   # Une variante serait de mettre un espace au lieu du 0 mais je trouve que ca rend mieux avec un 0 plutôt qu'avec un espace
 fi
 
-$calcul=$(echo $nb1 $mode $nb_temp)
+# $calcul=$(echo $nb1 $mode $nb_temp)
+calcul=$(echo "$nb1 $mode $nb_temp =")
 
+# Pour finir on affiche la boîte de dialogue comme pour crazy_cow.sh
 printf " "
 for i in $(seq 1 $(expr ${#calcul} + 2))
 do

@@ -4,7 +4,7 @@ clear
 for i in $(seq 1 $1)
 do
     echo " ----"
-    echo "< $(expr $i \* $i) >"     # On change simplement la valeur par elle même au carré
+    echo "< $(expr $i \* $i) >"     # On calcule simplement la valeur au carré
     echo " ----"
     echo "     \  ^__^"
     echo "      \ (oo)\_______"

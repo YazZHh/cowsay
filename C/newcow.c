@@ -18,17 +18,18 @@ void afficher_vache(char* eyes, int rainbow, int nb_tail){
     char *cyan = "\033[0m";
     char *violet = "\033[0m";
 
-    if (rainbow) {
+    if (rainbow) {              // On applique les couleurs si l'option rainbow est donnée
         rouge = "\033[31m";
         vert = "\033[32m";
         jaune = "\033[33m";
         cyan = "\033[36m";
         violet = "\033[35m";
     }
+
     printf("%s     \\  ^__^\n", rouge);
     printf("%s      \\ (%c%c)\\_______\n", vert, eyes[0], eyes[1]);
     printf("%s        (__)\\       )\\/\\", jaune);
-    for (int i=0; i<nb_tail; i++)
+    for (int i=0; i<nb_tail; i++)                           // Application du paramètre tail
         printf("/\\");
     printf("\n");
     printf("%s            ||----w |\n", cyan);
@@ -42,21 +43,21 @@ int main(int argc, char* argv[]){
 
     for (int i=1; i<argc; i++){
 
-        if (strcmp(argv[i], "-e") == 0 || strcmp(argv[i], "--eyes") == 0)
+        if (strcmp(argv[i], "-e") == 0 || strcmp(argv[i], "--eyes") == 0)           // Gestion du paramètre eyes
             strcpy(eyes, argv[i+1]);
 
-        else if (strcmp(argv[i], "-r") == 0 || strcmp(argv[i], "--rainbow") == 0)
+        else if (strcmp(argv[i], "-r") == 0 || strcmp(argv[i], "--rainbow") == 0)   // Gestion du paramètre rainbow
             rainbow=1;
 
-        else if (strcmp(argv[i], "-t") == 0 || strcmp(argv[i], "--tail") == 0){
+        else if (strcmp(argv[i], "-t") == 0 || strcmp(argv[i], "--tail") == 0){     // Gestion du paramètre tail
             char* str_nb_tail=argv[i+1];
             int i=0;
-
-            while (str_nb_tail[i] != '\0'){                         // Conversion du paramètre de char en int
+            while (str_nb_tail[i] != '\0'){                             // Conversion de la valeur donnée de char* en int
                 nb_tail = nb_tail * 10 + (str_nb_tail[i] - '0');
                 i++;
             }
         }
     }
     afficher_vache(eyes, rainbow, nb_tail);
+    return 0;
 }

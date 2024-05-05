@@ -14,12 +14,12 @@ encrypted_msg=""
 
 for i in $(seq 0 $(expr ${#2} - 1))
 do
-    char=${2:$i:1}                      # On récupère la lettre d'indice i 
-    ascii_val=$(printf "%d" "'$char")   # On la converti en sa valeur dans la table ascii
+    char=${2:$i:1}                              # On récupère la lettre d'indice i 
+    ascii_val=$(printf "%d" "'$char")           # On la converti en sa valeur dans la table ascii
 
-    val=$(expr $ascii_val + $decalage)         # Ensuite on la décalle de la valeur de la clé fournie
+    val=$(expr $ascii_val + $decalage)          # Ensuite on la décalle de la valeur de la clé fournie
 
-    if [ $val -gt 126 ]                 # Petites corrections pour que l'on reste bien dans l'intervalle des caractères imprimables
+    if [ $val -gt 126 ]                         # Petites corrections pour que l'on reste bien dans l'intervalle des caractères imprimables
     then
         val=$(expr 31 + $(expr $val - 126))
     elif [ $val -lt 32 ]

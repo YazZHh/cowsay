@@ -17,12 +17,16 @@ void dessiner_vache(char car){
 
 void dessiner_bulle(char* message){
     int longueur = strlen(message);
-    printf(" ");
+
+    printf(" ");                        // On dessine d'abord le haut de la bulle de texte,
     for (int i=0; i<longueur+2; i++)
         printf("_");
     printf("\n");
-    printf("< %s >\n ", message);
-    for (int i=0; i<longueur+2; i++)
+    
+    printf("< %s >\n", message);       // puis les côtés,
+
+    printf(" ");
+    for (int i=0; i<longueur+2; i++)    // et ensuite le bas.
         printf("-");
     printf(" \n");
 }
