@@ -1,4 +1,4 @@
-// たまごち牛。ｃ
+// たまごち牛.ｃ
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -76,7 +76,7 @@ int main(int argc, char* argv[]){
         printf("Combien de lunchfood voulez vous donner à votre vache ?\n");
         scanf("%d", &lunchfood);
 
-        while (lunchfood > stock || lunchfood < 0){     // On gère le cas où le joueur entre une valeur de lunchfood supérieure au stock disponible. 
+        while (lunchfood > stock || lunchfood < 0){     // On gère le cas où le joueur entre une valeur de lunchfood incorrecte. 
             update();
             printf("Durée de vie : %d\n", duree_de_vie);
             dessiner_vache(mode);

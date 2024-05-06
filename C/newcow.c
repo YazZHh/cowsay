@@ -34,7 +34,7 @@ void afficher_vache(char* eyes, int rainbow, int nb_tail){
     char *jaune = "\033[0m";
     char *cyan = "\033[0m";
     char *violet = "\033[0m";
-    char *blanc = "\033[0;37m";
+    char *blanc = "\033[0m";
 
     if (rainbow) {              // On applique les couleurs si l'option rainbow est donnée
         rouge = "\033[31m";

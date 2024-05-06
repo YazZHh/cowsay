@@ -61,7 +61,6 @@ int main(int argc, char* argv[]){
         msg[i]=car;
         msg[i+1]='\0';
         i++;
-        car=' ';
     }
     fclose(f);
     return 0;

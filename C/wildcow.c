@@ -24,8 +24,7 @@ void afficher_vache(int type, int x, int y, char* eyes){
         printf("    ||----w |");
         gotoxy(x, y+4);
         printf("    ||     ||");
-    }
-    else if (type == 0){
+    } else if (type == 0){
         printf("^__^");
         gotoxy(x, y+1);
         printf("(%c%c)\\_______", eyes[0], eyes[1]);
@@ -35,8 +34,7 @@ void afficher_vache(int type, int x, int y, char* eyes){
         printf("    /\\----w \\");
         gotoxy(x, y+4);
         printf("   /  \\   /  \\");
-    }
-    
+    } 
 }
 
 void afficher_poteau(int x, int y){
@@ -57,7 +55,7 @@ int main(int argc, char* argv[]){
 
     update();
     char eyes[15]="^^";
-    int abscisse_vache=38;
+    int abscisse_vache=45;
     int abscisse_poteau=30;
     int sol=8;
     int hauteur_vache=sol;
