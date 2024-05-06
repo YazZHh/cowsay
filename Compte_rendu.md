@@ -1,7 +1,7 @@
 # Compte rendu projet Cowsay
 ### de Valicourt - Nonis
 
-## Partie Bash
+## Partie Bash
 
 #### 1-2)
 Les deux premier scripts, cow_kindergarten.sh et cow_primaryschool.sh, il s'agit juste de faire une boucle simple et d'afficher une dernière fois la vache avec la langue qui pend.
