@@ -71,10 +71,10 @@ int main(int argc, char* argv[]){
 
         else if (strcmp(argv[i], "-t") == 0 || strcmp(argv[i], "--tail") == 0){     // Gestion du paramètre tail
             char* str_nb_tail=argv[i+1];
-            int i=0;
-            while (str_nb_tail[i] != '\0'){                                         // Conversion de la valeur donnée de char* en int
-                nb_tail = nb_tail * 10 + (str_nb_tail[i] - '0');
-                i++;
+            int j=0;
+            while (str_nb_tail[j] != '\0'){                                         // Conversion de la valeur donnée de char* en int
+                nb_tail = nb_tail * 10 + (str_nb_tail[j] - '0');
+                j++;
             }
             skip = i+1;  
         }
