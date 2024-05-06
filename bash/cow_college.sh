@@ -23,7 +23,7 @@ do
 done
 
 echo " ----"
-echo "< $fibo_1 >"  # On affiche fibo_1 qui est la dernière valeur de fibo_n a être en dessous du chiffre passé en argument
+echo "< $fibo_1 >"  # On affiche fibo_1 qui est la dernière valeur de fibo_n à être en dessous du chiffre passé en argument
 echo " ----"
 echo "     \  ^__^"
 echo "      \ (oo)\_______"

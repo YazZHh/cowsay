@@ -76,7 +76,7 @@ int main(int argc, char* argv[]){
         printf("Combien de lunchfood voulez vous donner à votre vache ?\n");
         scanf("%d", &lunchfood);
 
-        while (lunchfood > stock || lunchfood < 0){     // On gère le cas où le joueur entre une valeur de lunchfood supérieur au stock disponible. 
+        while (lunchfood > stock || lunchfood < 0){     // On gère le cas où le joueur entre une valeur de lunchfood supérieure au stock disponible. 
             update();
             printf("Durée de vie : %d\n", duree_de_vie);
             dessiner_vache(mode);
