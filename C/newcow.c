@@ -34,6 +34,7 @@ void afficher_vache(char* eyes, int rainbow, int nb_tail){
     char *jaune = "\033[0m";
     char *cyan = "\033[0m";
     char *violet = "\033[0m";
+    char *blanc = "\033[0;37m";
 
     if (rainbow) {              // On applique les couleurs si l'option rainbow est donnée
         rouge = "\033[31m";
@@ -43,8 +44,8 @@ void afficher_vache(char* eyes, int rainbow, int nb_tail){
         violet = "\033[35m";
     }
 
-    printf("%s     \\  ^__^\n", rouge);
-    printf("%s      \\ (%c%c)\\_______\n", vert, eyes[0], eyes[1]);     // On affiche seulement les deux premiers char de eyes
+    printf("     \\%s  ^__^%s\n", rouge, blanc);
+    printf("      \\%s (%c%c)\\_______\n", vert, eyes[0], eyes[1]);     // On affiche seulement les deux premiers char de eyes
     printf("%s        (__)\\       )\\/\\", jaune);
     for (int i=0; i<nb_tail; i++)                                       // Application du paramètre tail
         printf("/\\");
