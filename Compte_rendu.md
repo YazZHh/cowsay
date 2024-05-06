@@ -1,5 +1,5 @@
 # Compte rendu projet Cowsay
-### de Valicourt - Nonis
+### de Valicourt - Nonis - Groupe BG
 
 ## Partie Bash
 
